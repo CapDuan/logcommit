@@ -7,9 +7,14 @@ const run = async argv => {
     const log = string => options.stdout ? null : updateLog(string)
     log('\n gitcommit start...')
     //测试
-    const logs = (await cmd(`git log`))
-    await write(logs, options, log)
+    const logs = (await cmd(`git log v0.0.1`))
+    console.log(logs)
+    // await write(loglines, options, log)
 }
+const getCommit = async (logs) => {
+
+}
+
 const write = async (changelog, options, log) => {
     await writeFile(options.output, changelog)
 }
