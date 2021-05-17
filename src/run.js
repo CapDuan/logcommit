@@ -5,10 +5,16 @@ const {fileExists, formatBytes, writeFile} = require('./utils/fileUtils')
 const run = async argv => {
     const options = {output: 'changelog'}
     const log = string => options.stdout ? null : updateLog(string)
-    log('\n gitcommit start...')
+    log('\n gitcommit start...\n')
     //测试
-    const logs = (await cmd(`git log v0.0.1`))
-    console.log(logs)
+    let startTag = 'v0.0.101'
+    let endTag = 'v0.0.1'
+    const logs = (await cmd(`git log ${startTag}...${endTag}`))
+    let gitLogsList = logs.split('\n')
+    gitLogsList.forEach(val => {
+        console.log(val)
+        // if (val.startsWith('commit')) {            console.log(val)        }
+    })
     // await write(loglines, options, log)
 }
 const getCommit = async (logs) => {
