@@ -1,6 +1,6 @@
 {
   "name": "logcommit",
-  "version": "0.0.7",
+  "version": "0.0.701",
   "description": "根据git commit message 生成发布日志的终端工具(Command line tool for generating a changelog from git commit message)",
   "scripts": {
     "publish": "yarn publish --access public"
