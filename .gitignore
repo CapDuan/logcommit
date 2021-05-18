@@ -16,3 +16,4 @@ tests/**/coverage/
 *.sln
 .npm/
 changelog
+src/data/
