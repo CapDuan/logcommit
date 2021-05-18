@@ -3,7 +3,7 @@ const {cmd} = require('../utils')
 const {Tag} = require('./Tag')
 const {Log} = require('./Log')
 
-class logbuilder {
+class LogBuilder {
     get logCmd() {
         return this.#_logCmd;
     }
@@ -54,7 +54,7 @@ class logbuilder {
     #_startDate = null
     #_endDate = null
     #_logCmd = 'git log '
-    #_tagCmd = 'git tag '
+    #_tagCmd = 'git tag --sort=-taggerdate'
 
     /**
      *   @Description 获取tag
@@ -99,7 +99,7 @@ class logbuilder {
 
     // 公共域
     // 构造方法
-    constructor({author, start, end}) {
+    constructor({author, start, end} = {}) {
         this.author = author
         this.startDate = start
         this.endDate = end
@@ -109,11 +109,14 @@ class logbuilder {
 
 // test
 // let temp = new logbuilder({author: '段文超', start: '2021-05-01', end: '2021-05-15'})
-// let temp = new logbuilder({author: '段文超'})
+let temp = new LogBuilder()
 let tag = temp.getTag().then(value => {
     console.log(value.taglistStr)
 })
-let log = temp.getLog().then(value => {
-    console.log(value.loglistStr)
-})
+// let log = temp.getLog().then(value => {
+//     console.log(value.loglistStr)
+// })
 //
+module.exports = {
+    LogBuilder
+}
