@@ -7,9 +7,13 @@ const run = async argv => {
     const log = string => options.stdout ? null : updateLog(string)
     log('\n gitcommit start...\n')
     //测试
-    let startTag = 'v0.0.101'
-    let endTag = 'v0.0.1'
-    const logs = (await cmd(`git log ${startTag}...${endTag}`))
+    let startTag
+        // = 'v0.0.101'
+        = null
+    let endTag
+        // = 'v0.0.1'
+        = null
+    const logs = (await cmd(`git log`))
     let gitLogsList = logs.split('\n')
     gitLogsList.forEach(val => {
         console.log(val)
