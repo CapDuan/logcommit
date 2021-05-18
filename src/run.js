@@ -13,7 +13,7 @@ const run = async argv => {
     let endTag
         // = 'v0.0.1'
         = null
-    const logs = (await cmd(`git log`))
+    const logs = (await cmd(`git tag`))
     let gitLogsList = logs.split('\n')
     gitLogsList.forEach(val => {
         console.log(val)
