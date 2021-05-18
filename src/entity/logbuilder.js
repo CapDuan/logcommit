@@ -110,10 +110,10 @@ class logbuilder {
 // test
 // let temp = new logbuilder({author: '段文超', start: '2021-05-01', end: '2021-05-15'})
 // let temp = new logbuilder({author: '段文超'})
-// let tag = temp.getTag().then(value => {
-//     console.log(value.taglistStr)
-// })
-// let log = temp.getLog().then(value => {
-//     console.log(value.loglistStr)
-// })
+let tag = temp.getTag().then(value => {
+    console.log(value.taglistStr)
+})
+let log = temp.getLog().then(value => {
+    console.log(value.loglistStr)
+})
 //
