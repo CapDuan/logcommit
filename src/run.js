@@ -1,12 +1,20 @@
 const {updateLog, cmd} = require('./utils')
+const {Command} = require('commander')
+
 const {fileExists, formatBytes, writeFile} = require('./utils/fileUtils')
 const {LogBuilder} = require('./entity/LogBuilder')
 const {Parser} = require('./entity/parser')
 const run = async argv => {
-    const options = {output: 'changelog'}
+
+    const commandOptions = new Command()
+        .option('-at, --author <author>').parse(argv)
+    const options = {
+        output: 'changelog',
+        ...commandOptions
+    }
     const log = string => options.stdout ? null : updateLog(string)
     log('\n gitcommit start...\n')
-    let temp = new LogBuilder()
+    let temp = new LogBuilder({author: options.author})
     let logs = await temp.getLog()
     let parser = new Parser(logs.commitList)
 
