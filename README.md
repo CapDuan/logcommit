@@ -16,12 +16,25 @@ npm install logocmmit
 
 ## Usage & 使用
 
-### 默认配置
+### 默认查看
 
 ```bash
 logcommit
 ```
+### 默认输出
 
+```bash
+logcommit > changelog.md
+```
+### 参数
+
+```shell
+Usage: logcommit [options]
+
+Options:
+
+        -at | --author [author] #根据作者筛选
+```
 会输出文件`changlog`到根目录下
 
 ## 第一期计划
