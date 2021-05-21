@@ -19,8 +19,8 @@ class Parser {
                     // TODO 解析
                     // console.log(title)
                     content += `## ${title}\n`
-                    commitListWithtype.forEach(commit => {
-                        content += commit.shortMessage + '\n'
+                    commitListWithtype.forEach((commit, index) => {
+                        content += `${index + 1}. ${commit.shortMessage}\n`
                     })
                 }
             }
