@@ -1,10 +1,19 @@
 // logs
+const {Commit} = require('./commit')
+const {REG_PATTERN} = require('../utils/reg')
 
 class Log {
     #_loglistStr
-    #_commitReg = new RegExp(/commit [a-f0-9]{40}\n/g)
+    #_commitList = []
 
-    // #_authorReg = new RegExp(/^commit ([a-fA-F0-9]{32})/)
+
+    get commitList() {
+        return this.#_commitList;
+    }
+
+    set commitList(value) {
+        this.#_commitList = value;
+    }
 
     get loglistStr() {
         return this.#_loglistStr;
@@ -14,12 +23,24 @@ class Log {
         this.#_loglistStr = value;
     }
 
-    list = []
+    /**
+     *   @Description log解析
+     *   @author wenchao
+     *   @date: 2021/5/20
+     */
+    async parseLog() {
+        let commitList = this.loglistStr.matchAll(new RegExp(REG_PATTERN.commit))
+        this.commitList = []
+        Array.from(commitList).forEach(val => {
+            let commit = new Commit(val[0])
+            this.commitList.push(commit)
+        })
+    }
 
     constructor(log) {
         this.loglistStr = log
-        this.list = this.loglistStr.split(/commit ([a-fA-F0-9]{32})\n/)
+        this.parseLog()
     }
 }
 
-module.exports = {Log}
+module.exports = {Log};

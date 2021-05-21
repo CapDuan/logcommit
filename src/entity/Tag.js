@@ -31,7 +31,6 @@ class Tag {
     constructor(tags) {
         this.taglistStr = tags
         this.tagList = tags.trim().split('\n')
-        console.log(this.tagList)
     }
 }
 

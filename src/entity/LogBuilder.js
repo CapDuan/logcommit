@@ -53,7 +53,7 @@ class LogBuilder {
     #_author = ''
     #_startDate = null
     #_endDate = null
-    #_logCmd = 'git log --shortstat --pretty=format:__LOGCOMMIT__COMMIT__%H%n%ai%n%an%n%ae%n%B__LOGCOMMIT_MESSAGE__%H'
+    #_logCmd = 'git log --shortstat --pretty=format:__LOGCOMMIT__COMMIT__%nhash:@{%H}%ndate:@{%ai}%nauthor:@{%an}%nauthorEmail:@{%ae}%nmessage:%n@{%B}%n__LOGCOMMIT_MESSAGE__'
     #_tagCmd = 'git tag --sort=-taggerdate'
 
     /**
@@ -106,17 +106,14 @@ class LogBuilder {
         this.buildOptions()
     }
 }
-
-// test
-// let temp = new logbuilder({author: '段文超', start: '2021-05-01', end: '2021-05-15'})
-let temp = new LogBuilder()
-// let tag = temp.getTag().then(value => {
-//     console.log(value.taglistStr)
-// })
-let log = temp.getLog().then(value => {
-    console.log(value.loglistStr)
-})
 //
+// // test
+// // let temp = new logbuilder({author: '段文超', start: '2021-05-01', end: '2021-05-15'})
+// let temp = new LogBuilder()
+// // let tag = temp.getTag().then(value => {
+// //     console.log(value.taglistStr)
+// // })
+// temp.getLog()
 module.exports = {
     LogBuilder
 }
