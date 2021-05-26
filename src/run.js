@@ -7,19 +7,20 @@ const {Parser} = require('./entity/parser')
 const run = async argv => {
 
     const commandOptions = new Command()
-        .option('-at, --author <author>').parse(argv)
-        .option('-sd, --startDate <startDate>').parse(argv)
-        .option('-ed, --endDate <endDate>').parse(argv)
-
+        .option('-at, --author <author>')
+        .option('-sd, --startDate <startDate>')
+        .option('-ed, --endDate <endDate>')
+        .option('-dt, --detail <detail>').parse(argv)
     const options = {
         output: 'changelog',
         ...commandOptions
     }
     const log = string => options.stdout ? null : updateLog(string)
     log('\n gitcommit start...\n')
-    let temp = new LogBuilder({author: options.author, start: options.startDate, end: options.endDate})
+    console.log(options)
+    let temp = new LogBuilder(options)
     let logs = await temp.getLog()
-    let parser = new Parser(logs.commitList)
+    let parser = new Parser(logs.commitList, options)
 }
 const write = async (changelog, options, log) => {
     await writeFile(options.output, changelog)

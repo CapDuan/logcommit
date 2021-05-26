@@ -71,6 +71,7 @@ class LogBuilder {
      *   @date: 2021/5/18
      */
     async getLog() {
+        console.log('raw log:', this.logCmd)
         return new Log(await cmd(this.logCmd))
     }
 
@@ -99,13 +100,14 @@ class LogBuilder {
 
     // 公共域
     // 构造方法
-    constructor({author, start, end} = {}) {
+    constructor({author, start, end}) {
         this.author = author
         this.startDate = start
         this.endDate = end
         this.buildOptions()
     }
 }
+
 //
 // // test
 // // let temp = new logbuilder({author: '段文超', start: '2021-05-01', end: '2021-05-15'})

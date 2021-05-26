@@ -2,10 +2,13 @@
 const _ = require('lodash')
 
 class Parser {
+    options = {}
     result;
     output;
 
     buildOutput(input) {
+        let header = `生成时间：\`${new Date().toLocaleString()}\`\n`
+
         let title = ''
         let content = ''
         let footer = ''
@@ -20,15 +23,19 @@ class Parser {
                     // console.log(title)
                     content += `## ${title}\n`
                     commitListWithtype.forEach((commit, index) => {
-                        content += `${index + 1}. ${commit.shortMessage}\n`
+                        content += `- ${commit.shortMessage.replace(`${inputKey}(`, '').replace(`): `, ':')}\`${commit.author}\`    \n`
+                        if (this.options.ifDetail) {
+                            content += `> ${commit.message.replace(/\n/g, '  \n> ')}    \n`
+                        }
                     })
                 }
             }
         })
-        return content + footer
+        return header + content + footer
     }
 
-    constructor(commitList) {
+    constructor(commitList, options) {
+        this.options = options
         this.result = _.groupBy(commitList, val => {
             return val.commitType
         })
