@@ -13,7 +13,7 @@ const run = async argv => {
         .option('-dt, --detail <detail>').parse(argv)
     const options = {
         output: 'changelog',
-        ...commandOptions
+        ...commandOptions._optionValues
     }
     const log = string => options.stdout ? null : updateLog(string)
     log('\n gitcommit start...\n')

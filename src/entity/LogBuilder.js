@@ -71,6 +71,7 @@ class LogBuilder {
      *   @date: 2021/5/18
      */
     async getLog() {
+        console.log('raw:', this.author, this.startDate, this.endDate)
         console.log('raw log:', this.logCmd)
         return new Log(await cmd(this.logCmd))
     }
@@ -84,14 +85,14 @@ class LogBuilder {
         let logfilter = '';
         `--author=${this.author}`
         if (this.author) {
-            logfilter += `--author=${this.author}`
+            logfilter += ` --author=${this.author}`
         }
         if (this.startDate && this.endDate) {
-            logfilter += `--after=${this.startDate} ` + `--before=${this.endDate}`
+            logfilter += ` --after=${this.startDate} ` + `--before=${this.endDate}`
         } else if (this.endDate && !this.startDate) {
-            logfilter += `--before=${this.endDate}`
+            logfilter += ` --before=${this.endDate}`
         } else if (this.startDate && !this.endDate) {
-            logfilter += `--after=${this.startDate}`
+            logfilter += ` --after=${this.startDate}`
         } else {
             logfilter += ''
         }
@@ -100,10 +101,10 @@ class LogBuilder {
 
     // 公共域
     // 构造方法
-    constructor({author, start, end}) {
+    constructor({author, startDate, endDate}) {
         this.author = author
-        this.startDate = start
-        this.endDate = end
+        this.startDate = startDate
+        this.endDate = endDate
         this.buildOptions()
     }
 }
