@@ -71,8 +71,8 @@ class LogBuilder {
      *   @date: 2021/5/18
      */
     async getLog() {
-        console.log('raw:', this.author, this.startDate, this.endDate)
-        console.log('raw log:', this.logCmd)
+        console.log(`raw params \`${this.author, this.startDate, this.endDate}\`\n`)
+        console.log(`raw log \`${this.logCmd}\`\n`)
         return new Log(await cmd(this.logCmd))
     }
 
@@ -88,7 +88,7 @@ class LogBuilder {
             logfilter += ` --author=${this.author}`
         }
         if (this.startDate && this.endDate) {
-            logfilter += ` --after=${this.startDate} ` + `--before=${this.endDate}`
+            logfilter += ` --after=${this.startDate} ` + ` --before=${this.endDate}`
         } else if (this.endDate && !this.startDate) {
             logfilter += ` --before=${this.endDate}`
         } else if (this.startDate && !this.endDate) {

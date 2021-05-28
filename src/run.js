@@ -16,8 +16,8 @@ const run = async argv => {
         ...commandOptions._optionValues
     }
     const log = string => options.stdout ? null : updateLog(string)
-    log('\n gitcommit start...\n')
-    console.log(options)
+    // log('\n gitcommit start...\n')
+    console.log(`options:${options}`)
     let temp = new LogBuilder(options)
     let logs = await temp.getLog()
     let parser = new Parser(logs.commitList, options)

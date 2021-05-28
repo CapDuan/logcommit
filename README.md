@@ -25,15 +25,25 @@ logcommit
 
 ```bash
 logcommit > changelog.md
+
 ```
+### 指定「作者>「开始统计时间>「结束统计时间>输出到「changelog.md」
+```shell
+logcommit -at <author> -sd <startDate> -ed <endDate>  > changelog.md
+
+```
+
 ### 参数
 
 ```shell
 Usage: logcommit [options]
 
 Options:
+  -at, --author <author> 筛选作者
+  -sd, --startDate <startDate> 起始时间
+  -ed, --endDate <endDate> 结束时间
+  -h, --help                    
 
-        -at | --author [author] #根据作者筛选
 ```
 会输出文件`changlog`到根目录下
 
