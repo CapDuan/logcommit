@@ -16,5 +16,8 @@
     "commander": "^7.2.0",
     "lodash": "^4.17.21"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "logcommit": "^0.1.112"
+  }
 }

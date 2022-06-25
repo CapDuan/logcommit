@@ -56,9 +56,11 @@ Options:
 * refactor：重构代码，对原有功能原则上无感。
 * perf：性能优化
 * test：增加测试
+* chore：源码文档无关修改
+
 * build：构建相关
 * ci：持续继承相关
-* chore：源码文档无关修改
+
 * revert：回退
 
 字段解析成对应MD文件

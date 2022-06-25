@@ -11,3 +11,11 @@ lodash@^4.17.21:
   version "4.17.21"
   resolved "https://registry.npmjs.org/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
   integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
+
+logcommit@^0.1.112:
+  version "0.1.112"
+  resolved "https://registry.npmmirror.com/logcommit/-/logcommit-0.1.112.tgz#f0c2f785960b25584d29fe6a9aba7c9fc22d4dc0"
+  integrity sha512-BzLnf96bd+10zDIYrAf9zno1Y87xJSDw7ElwF46gYkUSmlHzqPz0q+3kY3djXzKhfeUBEo83/rbNK1zGdUnBtQ==
+  dependencies:
+    commander "^7.2.0"
+    lodash "^4.17.21"
