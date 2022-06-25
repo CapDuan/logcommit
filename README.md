@@ -19,13 +19,14 @@ npm install logocmmit
 ### 默认查看
 
 ```bash
-logcommit
+yarn run logcommit 
+or
+npm run logcommit
 ```
 ### 默认输出
 
 ```bash
-logcommit > changelog.md
-
+yarn run logcommit > changelog.md
 ```
 ### 指定「作者>「开始统计时间>「结束统计时间>输出到「changelog.md」
 ```shell
