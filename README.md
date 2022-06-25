@@ -1,7 +1,11 @@
 # logcommit
 
+# 背景
 根据commit快速输出changelog，支持按照人、action筛选输出md文档或html文档
 
+[Github地址：https://github.com/CapDuan/logcommit](https://github.com/CapDuan/logcommit) 
+# ✨注意
+提交信息需要按照 [Git angular提交规范](https://github.com/angular/angular/blob/22b96b9/CONTRIBUTING.md#-commit-message-guidelines)提交，缺少规范条件，会将所有commit信息归类到`其他`
 ## Installation & 安装
 
 ```bash
